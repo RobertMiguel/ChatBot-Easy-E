@@ -1,7 +1,5 @@
 <?php
-
 include('protect.php');
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,14 +12,15 @@ include('protect.php');
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-    <link rel="stylesheet" href="./style-login.css">
+    <link rel="stylesheet" href="./painel-style.css">
 </head>
 <body>
-    Bem vindo ao Painel, <?php echo $_SESSION['nome']; ?>.
-
-    <p>
-        <a href="logout.php">Sair</a>
-    </p>
-    
+    <div class="area-messeger">
+        <div class="messeger">
+            <p>Seja bem-vindo ao painel, <?php echo $_SESSION['nome']; ?></p>
+            <button class="botton">
+                <a href="logout.php">Sair</a>
+            </button>
+    </div>
 </body>
 </html>

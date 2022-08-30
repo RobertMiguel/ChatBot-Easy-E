@@ -1,41 +1,41 @@
 <?php
-include('conexao.php.php');
-if(isset($_POST['nome']) || isset($_POST['senha'])){
-    if(strlen($_POST['nome']) == 0){
-        echo "Prencha seu nome";
-    }
-    else if(strlen($_POST['senha']) == 0){
-        echo "Prencha sua senha";
-    }
-} else {
+include('conexao.php');
 
-    $nome = $mysqli->real_escape_string($_POST['nome']);
-    $senha = $mysqli->real_escape_string($_POST['senha']);
+if(isset($_POST['email']) || isset($_POST['senha'])) {
 
-    $sql_code = "SELECT * FROM usuarios WHERE nome = '$nome' AND senha = '$senha'";
-    $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
+    if(strlen($_POST['email']) == 0) {
+        echo "Preencha seu e-mail";
+    } else if(strlen($_POST['senha']) == 0) {
+        echo "Preencha sua senha";
+    } else {
 
-    $quantidade = $sql_query->num_rows;
+        $email = $mysqli->real_escape_string($_POST['email']);
+        $senha = $mysqli->real_escape_string($_POST['senha']);
 
-    if($quantidade == 1) {
-        
-        $usuario = $sql_query->fetch_assoc();
+        $sql_code = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha'";
+        $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
 
-        if(!isset($_SESSION)) {
-            session_start();
+        $quantidade = $sql_query->num_rows;
+
+        if($quantidade == 1) {
+            
+            $usuario = $sql_query->fetch_assoc();
+
+            if(!isset($_SESSION)) {
+                session_start();
+            }
+
+            $_SESSION['id'] = $usuario['id'];
+            $_SESSION['nome'] = $usuario['nome'];
+
+            header("Location: painel.php");
+
+        } else {
+            echo "Falha ao logar! E-mail ou senha incorretos";
         }
 
-        $_SESSION['id'] = $usuario['id'];
-        $_SESSION['nome'] = $usuario['nome'];
-
-        header("Location: painel.php");
-
-    } else {
-        echo "Falha ao logar! E-mail ou senha incorretos";
     }
 
-
-    
 }
 ?>
 <!DOCTYPE html>
@@ -58,8 +58,8 @@ if(isset($_POST['nome']) || isset($_POST['senha'])){
                 <img src="./logo.png">
             </div>
             <form method="POST">
-                <input type="text" name="nome" placeholder="Digite o nome" autofocus>
-                <input type="password" name="senha" placeholder="Digite a Password">
+                <input type="text" name="email" placeholder="Digite seu e-mail" autofocus >
+                <input type="password" name="senha" placeholder="Digite a Password" >
                 <input type="submit" value="Entrar">
             </form>
             <p>Ainda não tem cadastro?</p><a href="#">Criar conta</a>
