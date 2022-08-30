@@ -1,0 +1,68 @@
+body{
+    background-color: #1B1F27;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden; /*Desativar a barra de rolagem*/
+}
+.area-login{
+       display: flex; /*Alinhar os item*/
+       height: 100vh;
+       align-items: center; /*Alinhar itens*/
+       justify-content: center;/*Colocar lado a lado*/
+}
+/*Login*/
+.login{
+    background-color: #181920;
+    width: 350px; /*Largura*/
+    height: 400px; /*Altura*/
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+}
+/*Login, Formulário*/
+.login form{
+    /*Alinhar o form para ficar os input abaixo um do outro*/
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+/*Inputs da div login*/
+.login input{
+    margin-top: 10px;
+    background-color: #252A34;
+    border: none;
+    height: 45px;
+    outline: none;
+    border-radius: 8px ; /*Relação as bordas*/
+    color: #CBD0F7;
+    padding-left: 10px;
+}
+/*Imagem do Login*/
+.login img{
+    width: 100px;
+    height: auto;
+}
+/*Para utilizar css em atributos é só fazer igual está abaixo*/
+.input::placeholder{ 
+    color: #CBD0F7;
+    font-size: 14px;
+}
+/*Já para editar o tipo dos atributos é só fazer assim*/
+form [type="submit"]{
+    display: block; /*Para ficar redenrizado em blocos*/
+    background-color: #5568EF;
+    font-size: 20px;
+    text-transform: uppercase; /*Para deixar a fonte em caixa alta*/
+    font-weight: bold; /*Destacar a fonte no botam*/
+
+}
+p{
+    color: #CDB0F7;
+}
+a{
+    color: #5568EF;
+    text-decoration: none; /*Remover as decorações da tela*/
+    margin-left: 10px;
+}
+
