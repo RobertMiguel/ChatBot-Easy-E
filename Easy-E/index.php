@@ -62,7 +62,7 @@ if(isset($_POST['email']) || isset($_POST['senha'])) {
                 <input type="password" name="senha" placeholder="Digite a Password" >
                 <input type="submit" value="Entrar">
             </form>
-            <p>Ainda não tem cadastro?</p><a href="#">Criar conta</a>
+            <p>Ainda não tem cadastro?</p><a href="cadastro.php">Criar conta</a>
         </div>
     </section>
 </body>
