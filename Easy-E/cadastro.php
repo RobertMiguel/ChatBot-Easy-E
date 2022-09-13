@@ -1,3 +1,6 @@
+<?php
+include("conexao.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,9 +24,9 @@
         <div class="rigth-login">
             <div class="card-login">
                 <h1>LOGIN</h1>
-				<form method="post">
+				<form method="POST" action="processa.php">
 					<div class="textfield">
-						<input type="text" name="usuario" placeholder="Digite o e-mail">
+						<input type="text" name="email" placeholder="Digite o e-mail">
 					</div>
 					<div class="textfield">
 						<input type="text" name="nome" placeholder="Digite seu nome">
@@ -31,9 +34,8 @@
 					<div class="textfield">
 						<input type="password" name="senha" placeholder="Digite a senha">
 					</div>
+                    <input type="submit" value="Criar Conta" class="btn-login">
 				</form>
-				<input type="submit" value="Criar Conta" class="btn-login">
-
             </div>
         </div>
 
